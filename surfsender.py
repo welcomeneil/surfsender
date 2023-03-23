@@ -6,9 +6,23 @@ from base64 import urlsafe_b64decode
 from urllib import response
 from bs4 import BeautifulSoup
 
-class SurfData:
-    def __init__(self, wave_height) -> None:
-        self.wave_height = wave_height
+# 1. Choose a web framework: You need to choose a web framework that suits your project requirements. 
+# Some of the popular web frameworks in Python are Flask, Django, Pyramid, and Bottle.
+
+# 2. Refactor your code: You need to refactor your code to make it compatible with the chosen web framework. 
+# You need to replace the input/output functions with HTTP requests and responses.
+
+# 3. Create routes: You need to create routes for your web application. A route maps
+# a URL to a specific function in your code.
+
+# 4. Create templates: You need to create HTML templates for your web 
+# pages. You can use a templating engine like Jinja2 to create dynamic templates.
+
+# 5. Set up a database: If your command line script uses a database, you need to set up a database 
+# for your web application. You can use a database ORM like SQLAlchemy to interact with the database.
+
+# 6. Deploy your web application: You need to deploy your web application to a web server. 
+# You can use a cloud platform like AWS, Azure, or Google Cloud Platform, or a web hosting provider like Heroku or DigitalOcean.
 
 class SurfDailyBest:
     def __init__(self, date, time, ranking, wave_height) -> None:
@@ -32,7 +46,7 @@ def extract_all_surf_data(soup_obj):
     return create_surf_daily_bests_for_week(wave_heights, wave_ranks)
 
 
-#Returns a list of SurfDailyBest objects.
+#Returns a list of SurfDailyBest objects with each daily best wave report and when to go.
 def create_surf_daily_bests_for_week(filtered_wave_heights, filtered_star_ranks):
     days_of_the_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     time_stamps = ['6am', '9am', '12pm', '3pm', '6pm']
@@ -74,7 +88,7 @@ def get_wave_heights_at_times(soup_obj):
     
 
 '''Returns a list of lists.
-Each nested list represents a day of the week and contains five integer, 'star rating', values representing the quality of the waves at a given time stamp out of 5.
+Each nested list represents a day of the week and contains five, 'star rating', integer values representing the quality of the waves at a given time stamp out of 5.
 Index 0 of the nested list represents the star rating at 6am, and each consecutive index represents a star rating 3 hours ahead.
 This means that index 1 represents the star rating at 9am, index 2 represents the star rating at 12pm, and so forth until 9pm.'''
 def get_rankings_at_times(soup_obj):
@@ -109,10 +123,7 @@ def get_wave_heights_at_times_as_tuples(soup_obj):
 
     return filtered_wave_heights
 
-if __name__ == "__main__":
-    url = 'https://magicseaweed.com/Doheny-State-Beach-Surf-Report/2588/'
-    html = html_retriever(url)
-    print(get_rankings_at_times(html))
-
-    
-    
+# if __name__ == "__main__":
+#     url = 'https://magicseaweed.com/Doheny-State-Beach-Surf-Report/2588/'
+#     html = html_retriever(url)
+#     print(get_rankings_at_times(html))

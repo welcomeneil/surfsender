@@ -9,6 +9,5 @@ def main(url):
         print(i)
 
 if __name__ == "__main__":
-    
     url = input("Type in a url for your beach: ")
     main(url)
