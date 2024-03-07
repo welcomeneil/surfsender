@@ -6,24 +6,6 @@ from base64 import urlsafe_b64decode
 from urllib import response
 from bs4 import BeautifulSoup
 
-# 1. Choose a web framework: You need to choose a web framework that suits your project requirements. 
-# Some of the popular web frameworks in Python are Flask, Django, Pyramid, and Bottle.
-
-# 2. Refactor your code: You need to refactor your code to make it compatible with the chosen web framework. 
-# You need to replace the input/output functions with HTTP requests and responses.
-
-# 3. Create routes: You need to create routes for your web application. A route maps
-# a URL to a specific function in your code.
-
-# 4. Create templates: You need to create HTML templates for your web 
-# pages. You can use a templating engine like Jinja2 to create dynamic templates.
-
-# 5. Set up a database: If your command line script uses a database, you need to set up a database 
-# for your web application. You can use a database ORM like SQLAlchemy to interact with the database.
-
-# 6. Deploy your web application: You need to deploy your web application to a web server. 
-# You can use a cloud platform like AWS, Azure, or Google Cloud Platform, or a web hosting provider like Heroku or DigitalOcean.
-
 class SurfDailyBest:
     def __init__(self, date, time, ranking, wave_height) -> None:
         self.date = date
@@ -37,7 +19,7 @@ class SurfDailyBest:
 
 def html_retriever(url):
     page_content = requests.get(url).content
-    soup_obj = BeautifulSoup(page_content, 'html.parser')
+    soup_obj = BesautifulSoup(page_content, 'html.parser')
     return soup_obj
 
 def extract_all_surf_data(soup_obj):
